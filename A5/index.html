@@ -1,0 +1,252 @@
+<!--I USED GOOGLE CHROME AS MY BROWSER.-->
+<!--Name - IFTI AHMED -->
+<!--Brock Username - ia18ka-->
+<!--Student Number - 6559348-->
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta charset=”utf-8”>
+ <meta name=”keywords” content=”used by search engines”>
+ <meta name=”description” content=”...search engines..”>
+ <title>My Personal Website</title>
+
+ <style>
+   .a{
+    display:inline-block;
+    background-color: green;
+    color: white;
+    text-align:center;
+    padding:7.5px;
+    vertical-align:top;
+   }
+   .x{
+     background-color: black;
+     padding:20px; 
+     vertical-align:top;
+     overflow: hidden;
+   }
+   a:link,a:visited{
+       color:brown;
+   }
+   a:hover{
+      color:red; 
+   }
+   /* Use a media query to add a break point at 800px: */
+   @media screen and (max-width: 800px) {
+     .x, .y, .Home,.Courses,.Aboutme,.CV {
+       width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+   }
+  }
+ </style>
+
+ <script>
+     function show(H,C,A,V,P,F) {
+      document.getElementById(H).style.display='block';
+      document.getElementById(C).style.display='none';
+      document.getElementById(A).style.display='none';
+      document.getElementById(V).style.display='none';
+      document.getElementById(P).style.display='none';
+      document.getElementById(F).style.display='none';
+    }
+    function InvokePython() {
+		  	try {
+        var username = document.getElementById("user").value;
+        var password = document.getElementById("pass").value;
+      	x = new XMLHttpRequest();
+	      x.addEventListener("readystatechange", stateChange, false);
+      	x.open("POST","../cgi-bin/Verify.cgi",true);
+        x.setRequestHeader('Content-Type','application/x-www-form-urlencoded;')
+        x.send("user=" + username + "&pass=" + password); 
+    	}
+			catch(exception) {
+				alert("Failed");
+			}
+		}
+	  function stateChange() {
+			if (x.readyState == 4 && x.status == 200) {
+				document.getElementById("abc").innerHTML = x.responseText;
+			}
+  	}
+ 
+    function storedata(){
+      if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("username", "eri");
+        //document.getElementById("store").innerHTML = sessionStorage.getItem("username");
+       }
+      else {
+        document.getElementById("store").innerHTML = "Sorry, your browser does not support Web Storage...";
+       }
+    }
+    
+    function storedata1(){
+      if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("password", "12345678");
+        //document.getElementById("store").innerHTML = sessionStorage.getItem("password");
+       }
+      else {
+        document.getElementById("store").innerHTML = "Sorry, your browser does not support Web Storage...";
+       }
+    }
+ </script>
+
+</head>
+
+<body style="background-color:gray">
+    <div class="y" style="background-color:beige;vertical-align:top;overflow:hidden">
+        <center>
+         <h1>IFTI AHMED</h1>
+         <h2>Software Engineer</h2>
+         <h3>Brock University</h3>
+        </center>
+    </div>
+
+    <div class="x">
+       <div style="float:left"><button class="a" onclick="show('Home','Courses','Aboutme','CV','Project','signup');">Home</button></div>
+       <div style="float:left;padding-left: 30px"><button class="a" onclick="show('Courses','Home','Aboutme','CV','Project','signup');">Courses</button></div>
+       <div style="float:left;padding-left: 35px"><button class="a" onclick="show('Aboutme','Home','Courses','CV','Project','signup');">Aboutme</button></div>
+       <div style="float:left;padding-left: 40px"><button class="a" onclick="show('CV','Home','Courses','Aboutme','Project','signup');">CV</button></div>
+       </br>
+    </div>
+     
+     <!--<h1>Please enter your Username and Password below to see my Past Projects</h1>
+     <div style="display: inline-block">  
+        Username:<input placeholder="Enter Username" onclick="storedata()" id="user" type="text" name="user">
+        Password:<input placeholder="Enter Password" onclick="storedata1()" id="pass" type="password" name="pass">
+    </div>
+    <button onclick="InvokePython()">log-in</button> 
+    <button onclick="show('signup','Home','Aboutme','CV','Project','Courses');">sign-up</button>-->
+    
+    <p id="store"></p>
+ 
+    <p id="abc"></p>
+    
+    
+
+    <div class="Home" id="Home" style="margin:30px;color:burlywood;">
+           <div style="float: left"><img src = "My Picture.jpg" width ="400" height = "400"></div>
+
+           <div style="float:left;padding-left:80px;font-size:20px">
+             <h1><u>My Background:</u></h1>
+             <ul>
+                 <li>Name: IFTI AHMED</li>
+                 <li>Student ID: 6559348</li>
+                 <li>Program: Computing and Business(BCB)</li>
+                 <li>Email: iftiahmed1997@gmail.com</li>
+                 <li>Date of Birth: Feb 18, 1997</li>
+                 <li>Address: </li>
+                 Street No: 58 Masterson Dr., Postal Code:L2T 3P6 </br>
+                 City: St. Catharines, Country: Canada
+             </ul>
+           </div>
+
+           <div style="float:left;font-size:20px;">
+               <h1><u>My Research Interests:</u></h1>
+               <ul>
+                   <li>Machine Learning</li>
+                   <li>Genetic Algorithms</li>
+                   <li>Neural Networks</li>
+                   <li>Software Engineering</li>
+               </ul>
+           </div>
+    </div>
+
+    <div class="Courses" id="Courses" style="display:none;font-size:25px;color:bisque;">
+        <h1><u>My Courses:</u></h1>
+        <ul>
+            <li>COSC 2P89: Internet Technologies</li>
+            <li>COSC 2P03: Advanced Data Structures</li>
+            <li>COSC 3P03: Algorithms</li>
+            <li>COSC 3P71: Introduction to Artificial Intelligence</li>
+            <li>COSC 4P01: Software Engineering 1</li>
+            <li>COSC 4P02: Creating Chatbot</li>
+            <li>COSC 4P32: Advanced Database Systems</li>
+        </ul>
+    </div>
+
+    <div class="Aboutme" id="Aboutme" style="display:none;font-size:25px;color:brown;">
+        <h1><u>About Me:</u></h1>
+        <p>
+         I am a very friendy type of person.I love mixing with people from different race and culture.Apart from this, I love to code and design website.
+         I know different types of programming languages such as Java,C++,Python and PHP. I have a lifelong dream to become a software developer and one day,
+         I hope to become one after graduating from Brock University.
+        </p>
+    </div>
+
+    <div class="CV" id="CV" style="display:none;margin:30px">
+        <center>
+            <table border="1" style="background-color:white">
+          
+             <!--Then, in the first row I will keep the Titles of Table (Education,Skills,Contact)-->
+             <tr>
+               <th><u><b>Education</b></u></th>
+               <th><u><b>Skills</b></u></th>
+               <th><u><b>Contact</b></u></th>
+               
+          
+             </tr>
+          
+            <!--After that, in the second row, I will give the detailed information about the Titles of Table (Education,Skills,Contact)-->
+            <tr>
+           
+              <td>
+               <img src ="R.gif" width ="125" height = "100"></img>
+          
+               <font color="blue">
+               <ul>
+                <li><b>Brock University</b></li>
+                <li><b>BCB: Computing and Business Major</b></li>
+                <li><b>Jan 2019 to Oct 2022</b></li>
+               </ul>
+               </font>
+           
+              </td>
+
+              <td>
+               <br><u><b>Languages Spoken:</b></u></br>
+               <br><font color="red">English and Bengali</font></br>
+               <br><u><b>Programming Languages:</b></u></br>
+               <br><font color="green">Java,C++,Python,HTML,CSS,JavaScript</font></br>
+               <br><u><b>Experience With:</b></u><br>
+               <br><font color="purple">Linux,Bash,NodeJS</font></br>
+              </td>
+           
+              <td>
+               <ul>
+                <li><b>Email:<font color="red">iftiahmed1997@gmail.com</font></b><font></li>
+                <li><b>Phone:<font color="green">+8801715435362</font></b></li>
+                <li><font color="purple"><b>LinkedIN.Facebook</b></font></li>
+                <li><a href= "https://docs.google.com/document/d/1whbPUjhCsGoIigyEMA_qys23R9eC8Wkm/edit"><font color ="steelblue">Download Resume</font></a></li>
+                <li><a href= "https://ca.linkedin.com/in/ifti-ahmed"><font color ="steelblue">My LinkedIN Profile</font></a></li>
+               </ul>  
+             </td>
+          
+            </tr>
+          
+            </table>
+       </center>
+    </div>
+    
+    <div id="Project" style="display:none;margin:30px;font-size:25px">
+       <h1><u>My Past Projects:</u></h1>
+       <ul>
+           <li><a href="https://github.com/IFTIAHMED01/PhoneBook">Project 1</a></li>
+           <li><a href="https://github.com/IFTIAHMED01/Quiz_Application">Project 2</a></li>
+           <li><a href="https://iftiahmed01.github.io/Blog/">Project 3</a></li>
+           <li><a href="https://github.com/IFTIAHMED01/ConsultingApp">Project 4</a></li>
+           <li><a href="https://github.com/IFTIAHMED01/ATM_Simulator">Project 5</a></li>
+       </ul>
+    </div>
+
+    <div id="signup" style="display:none;margin:30px;font-size:25px;color:beige">
+       <h1>Please sign up by putting your username and password:</h1>
+		   <form action="../cgi-bin/Verify.cgi" method="POST">
+			      Username:<input placeholder="Enter Username" id="use" name="use"></br></br>
+            Password:<input placeholder="Enter Password" id="pas" name="pas"></br></br>
+            <button>Submit</button>
+       </form>
+    </div>
+
+</body>
+</html>
